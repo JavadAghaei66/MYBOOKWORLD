@@ -1,0 +1,49 @@
+@using System.Text
+@model Book
+@{
+    ViewData["Title"] = "Read Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/Home/read_style.css">
+</head>
+
+<body>
+    <!-- Main content section for the book -->
+    <div class="container">
+        <!-- Book content card -->
+        <div class="read-card">
+            <!-- Card header with book title -->
+            <div class="read-card-Title">
+                @Model.Title
+            </div>
+            <!-- Card body with book content -->
+
+            <div class="read-card-body">
+                @if (Model.Content != null)
+                {
+                    <div class="book-content-text">
+                        <!-- Book content goes here -->
+                        @Encoding.UTF8.GetString(Model.Content);
+                    </div>
+                } else {
+                    <div class="book-content-text">
+                        <!-- Book content goes here -->
+                        No content for this book.
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

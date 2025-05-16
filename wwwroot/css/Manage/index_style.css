@@ -1,0 +1,150 @@
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.search-container {
+    flex: 1;
+    display: flex;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: #888;
+}
+
+.add-button-container {
+    display: flex;
+}
+
+.add-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-button:hover {
+    background-color: #0056b3;
+}
+
+.list_container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Wrap items to the next line if necessary */
+    gap: 20px;
+    /* Space between cards */
+    justify-content: center;
+    /* Align items to the start of the container */
+    border-radius: 24px;
+}
+
+/* Card Styling */
+.card {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    /* Set maximum width */
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: white;
+    margin: 10px;
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Left side: Image */
+.card-image {
+    width: 200px;
+    /* Set the image width */
+    height: 300px;
+    /* Set the image height */
+    object-fit: cover;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 46px;
+}
+
+/* Right side: Content */
+.content_information {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    flex-grow: 1;
+    /* Make the content take the remaining space */
+    justify-content: space-between;
+}
+
+.card-author,
+.card-publishedAt,
+.card-description,
+.card-category {
+    margin: 8px 0;
+}
+
+.card-title {
+    font-size: 28px;
+}
+
+.card-author,
+.card-publishedAt,
+.card-description,
+.card-category {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Action buttons */
+.card_action_buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.delete_button {
+    padding: 10px 16px;
+    border: none;
+    background-color: red;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer; 
+}
+
+.edit_button {
+    padding: 10px 16px;
+    border: none;
+    background-color: orange;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+}

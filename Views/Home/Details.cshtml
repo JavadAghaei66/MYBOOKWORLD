@@ -1,0 +1,69 @@
+@model Book
+@{
+    ViewData["Title"] = "Details Page";
+    var realatedBooks = ViewData["relatedBooks"] as List<MyBookWorld.Models.Book>;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Home/details_style.css">
+    <title>@ViewData["Title"]</title>
+</head>
+
+<body>
+    <div class="details_card">
+        <!-- Book Cover Section -->
+        <div class="cover_container">
+            <img src="@Model.CoverImageUrl" alt="Book Cover" class="card-image">
+        </div>
+
+        <!-- Book Information Section -->
+        <div class="content_information">
+            <h5 class="card-title">@Model.Title</h5>
+            <h5 class="card-author">Author: @(Model.Author?.Name ?? "Unknown")</h5>
+            <h5 class="card-publishedAt">Published At: @Model.PublishedDate.ToString("yy/MM/dd")</h5>
+            <h5 class="card-category">Category: @Model.Category!.Name</h5>
+            <p class="card-description">
+                @Model.Description
+            </p>
+            <br>
+            <p class="card-summery">
+                @Model.Summary
+            </p>
+            <a class="read-button" asp-controller="Home" asp-action="Read" asp-route-id="@Model.Id">Read Book</a>
+        </div>
+    </div>
+
+    @if (realatedBooks != null && realatedBooks.Count > 0)
+    {
+        <h5>
+            Related Books
+        </h5>
+        <div class="realted_books">
+            <button class="scroll-btn scroll-left">&#8592;</button> <!-- Left arrow -->
+            @foreach (Book obj in realatedBooks)
+            {
+                <div class="related-book-card">
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@obj.Id">
+                        <div class="related-cover-container">
+                            <img src="@obj.CoverImageUrl" alt="Related Book" class="card-image">
+                        </div>
+
+                        <div class="related-book-info">
+                            <p class="card-title">@obj.Title</p>
+                        </div>
+                    </a>
+
+                </div>
+            }
+            <button class="scroll-btn scroll-right">&#8594;</button> <!-- Right arrow -->
+        </div>
+    }
+    <script src="~/js/details.js"></script>
+</body>
+
+</html>

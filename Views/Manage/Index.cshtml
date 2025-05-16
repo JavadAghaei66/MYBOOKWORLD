@@ -1,0 +1,83 @@
+@model List<Book>
+@{
+    ViewData["Title"] = "Manage Page";
+    var errorMessage = ViewData["Error"] as string;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Manage/index_style.css">
+    <title>@ViewData["Title"]</title>
+</head>
+
+<body>
+    <div class="row">
+        <form class="search-container" role="search" method="post" asp-controller="Manage" asp-action="Search">
+            <input type="search" name="searchString" class="search-input" placeholder="Search for books..." />
+        </form>
+
+        <a asp-controller="Manage" asp-action="Add">
+            <div class="add-button-container">
+                <button class="add-button">Add Book</button>
+            </div>
+        </a>
+    </div>
+
+    <div class="list_container">
+        @if (Model != null && Model.Count > 0)
+        {
+            @foreach (Book obj in Model)
+            {
+                <div class="card">
+                    <!-- Card Content -->
+                    <img src="@obj.CoverImageUrl" alt="Book Cover" class="card-image">
+                    <div class="content_information">
+                        <div class="card-title">
+                            <h5 class="card-title">@obj.Title</h5>
+                        </div>
+                        <div class="card-author">
+                            <h5 class="card-author">@obj.Author!.Name</h5>
+                        </div>
+                        <div class="card-publishedAt">
+                            <h5 class="card-publishedAt">Published At: @obj.PublishedDate.ToString("yy/MM/dd")</h5>
+                        </div>
+                        <div class="card-description">
+                            <h5 class="card-description">@obj.Description</h5>
+                        </div>
+                        <div class="card_action_buttons">
+                            <form method="post" asp-controller="Manage" asp-action="Delete">
+                                @Html.Hidden("id", obj.Id)
+                                <button type="submit" class="delete_button">Delete</button>
+                            </form>
+
+                            <a asp-controller="Manage" asp-action="Edit" asp-route-id="@obj.Id">
+                                <button class="edit_button">
+                                    Edit
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <h3>
+                No Book Was Found.
+            </h3>
+            <a asp-controller="Manage" asp-action="Index">
+                <h4>
+                    (Show Available Books.)
+                </h4>
+            </a>
+
+        }
+
+    </div>
+</body>
+
+</html>

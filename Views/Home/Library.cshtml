@@ -1,0 +1,57 @@
+@model List<Book>
+@{
+    ViewData["Title"] = "Library Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Home/library_style.css">
+    <title>@ViewData["Title"]</title>
+</head>
+
+<body>
+    <div class="book_section_grid">
+        @if (Model != null && Model.Count > 0)
+        {
+            @foreach (Book obj in Model)
+            {
+                <div class="card">
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@obj.Id">
+                        <div class="card-content">
+                            <img src="@obj.CoverImageUrl" alt="Book Cover" class="card-image">
+                            <div class="content_information">
+                                <div class="card-body">
+                                    <h5 class="card-title">@obj.Title</h5>
+                                </div>
+                                <div class="card-author">
+                                    <h5 class="card-author">@obj.Author!.Name</h5>
+                                </div>
+                                <div class="card-category">
+                                    <h5 class="card-category">@obj.Category!.Name</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        }
+        else
+        {
+            <h3>
+                No Book Was Found.
+            </h3>
+            <a asp-controller="Home" asp-action="Library">
+                <h4>
+                    (Show Available Books.)
+                </h4>
+            </a>
+        }
+
+    </div>
+</body>
+
+</html>

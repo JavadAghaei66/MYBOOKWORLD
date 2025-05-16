@@ -1,0 +1,38 @@
+﻿@model Quote
+@{
+    ViewData["Title"] = "Welcome";
+    var welcomeString = ViewData["Welcome"] as string;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/Home/index_style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            @if (Model != null && Model.TheQuote.Length > 0)
+            {
+                <p class="quote_text">“ @Model.TheQuote ”</p>
+                <h4 class="speaker_text">@Model.Speaker</h4>
+            }
+            else
+            {
+                <p class="quote_text">@welcomeString</p>
+
+            }
+            <a href="/Home/Library"><button class="go_button">Go To Library</button></a>
+        </div>
+        <div class="image">
+            <img src="~/books.png" alt="Library Image">
+        </div>
+    </div>
+</body>
+
+</html>

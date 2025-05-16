@@ -1,0 +1,204 @@
+/* General styles for card layout */
+.details_card {
+    max-width: 90%;
+    margin: 40px auto;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 24px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.3); /* Transparent white background */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h5 {
+    font-size: 20px;
+    color: black;
+}
+
+/* Container for the book cover */
+.cover_container {
+    margin: 10px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Image styling for the book cover */
+.card-image {
+    width: 400px;
+    height: 600px;
+    border-bottom-left-radius: 16px;
+    border-top-left-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Content section of the card */
+.content_information {
+    margin: 10px;
+    padding: 40px;
+    flex-grow: 1;
+    background-color: rgba(224, 247, 250, 0.8); /* Light background with opacity */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 600px;
+}
+
+/* Title styling */
+.content_information .card-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+/* Author, Published Date, and Category styling */
+.content_information h5 {
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Styling for the description text */
+.content_information .card-description {
+    font-size: 18px;
+    color: #777;
+    margin-top: 15px;
+    line-height: 1.8;
+}
+
+/* Button styling */
+.read-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-color: brown;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.read-button:hover {
+    background-color: rgb(195, 40, 40);
+}
+
+/* Related Books Section */
+.realted_books {
+    display: flex;
+    overflow-x: scroll;
+    padding: 20px 0;
+    gap: 20px;
+    scroll-behavior: smooth;
+}
+
+/* Hide the scrollbar */
+.realted_books::-webkit-scrollbar {
+    display: none;
+}
+
+/* Styling for related book cards */
+.related-book-card {
+    width: 220px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: white; /* Transparent white background */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    transition: transform 0.3s ease;
+}
+
+.related-book-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Cover container for related book cards */
+.related-cover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+
+.related-book-card .card-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.related-book-info {
+    padding: 15px;
+    background-color: #f7f7f7;
+    border-radius: 0 0 16px 16px;
+}
+
+/* Related book card title styling */
+.related-book-info .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Button inside related book card */
+.related-book-info a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 18px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.related-book-info a:hover {
+    background-color: #0056b3;
+}
+
+/* Buttons to scroll left and right */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+
+
+.scroll-btn:hover {
+    background-color: #0056b3;
+}
+
+.scroll-left {
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.scroll-right {
+    right: 10px;
+    transform: translateY(-50%);
+}

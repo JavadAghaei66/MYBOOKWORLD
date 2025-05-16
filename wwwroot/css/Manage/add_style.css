@@ -1,0 +1,115 @@
+.form-container {
+    max-width: 600px; /* Maximum width */
+    min-width: 320px; /* Minimum width */
+    margin: 50px auto;
+    padding: 34px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.3); /* Transparent white background */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    width: 100%; /* Ensure it takes up full width within the constraints */
+    box-sizing: border-box; /* Makes sure padding and border are included in width */
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.form-control,
+.submit-btn,
+.btn-back {
+    width: 100%;
+    margin-bottom: 18px;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    transition: background-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    background-color: #fff;
+}
+
+.submit-btn {
+    background-color: rgb(92, 189, 92);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out,
+    background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: greenyellow;
+    transform: translateY(-4px);
+}
+
+.btn-back {
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #495057;
+    transform: translateY(-4px);
+}
+
+.file-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.file-input-container input[type="file"] {
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fafafa;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-input-container input[type="file"]:hover {
+    background-color: #f0f0f0;
+}
+
+.file-name {
+    font-size: 16px;
+    margin-top: 5px;
+    color: orange;
+    font-style: italic;
+}
+
+textarea.form-control {
+    height: 120px;
+    resize: none;
+}
+
+.form-container .mb-3 {
+    margin-bottom: 20px;
+}
+
+.error_text {
+    color: red;
+    padding: 8px;
+}

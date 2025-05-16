@@ -1,0 +1,78 @@
+@model Book
+@{
+    ViewData["Title"] = "Edit Book Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/Manage/edit_style.css">
+</head>
+
+<body>
+    <form method="post" enctype="multipart/form-data" asp-controller="Manage" asp-action="Edit">
+        @Html.Hidden("id", Model.Id)
+        <div class="form-container">
+            <h2>Edit Book</h2>
+            <div asp-validation-summary="All" class="error_text"></div>
+            
+            <!-- Book Title -->
+            <div class="mb-3">
+                <input name="Title" class="form-control" value="@Model.Title" placeholder="Enter Book Title" required autofocus>
+            </div>
+
+            <!-- Book Description -->
+            <div class="mb-3">
+                <input name="Description" class="form-control" value="@Model.Description" placeholder="Enter Book Description" required autofocus>
+            </div>
+
+            <!-- Book Summary -->
+            <div class="mb-3">
+                <textarea name="Summary" class="form-control" rows="2" placeholder="Enter Book Summary" required>@Model.Summary</textarea>
+            </div>
+
+            <!-- Book Cover URL -->
+            <div class="mb-3">
+                <input name="CoverImageUrl" class="form-control" value="@Model.CoverImageUrl" type="url" placeholder="Enter Cover URL" required>
+            </div>
+
+            <!-- Published Date -->
+            <div class="mb-3">
+                <input name="PublishedDate" class="form-control" value="@Model.PublishedDate.ToString("yyyy-MM-dd")" type="date" placeholder="Enter Published Date" required>
+            </div>
+
+            <!-- File Upload -->
+            <div class="file-input-container mb-3">
+                <label for="file" class="form-label" style="font-weight: bold;">Choose a Text File (.txt):<br> *Leave it for same content.</label>
+                <input type="file" id="file" name="file" accept=".txt" class="form-control">
+                <div class="file-name" id="fileName"></div> <!-- This will display the selected file name -->
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit</button>
+
+            <!-- Back Button -->
+            <a href="/Home" class="btn-back">Back to Home</a>
+        </div>
+    </form>
+
+    <script>
+        // Display the file name when the user selects a file
+        document.getElementById('file').addEventListener('change', function () {
+            const fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+            document.getElementById('fileName').textContent = fileName;
+        });
+    </script>
+</body>
+
+</html>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
